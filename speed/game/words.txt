@@ -1,6 +1,3 @@
-a
-aa
-aaa
 aaron
 ab
 abandoned
@@ -716,7 +713,6 @@ axis
 aye
 az
 azerbaijan
-b
 ba
 babes
 babies
@@ -1229,7 +1225,6 @@ by
 bye
 byte
 bytes
-c
 ca
 cab
 cabin
@@ -1694,7 +1689,6 @@ coastal
 coat
 coated
 coating
-cocks
 cod
 code
 codes
@@ -3638,11 +3632,6 @@ frost
 frozen
 fruit
 fruits
-fs
-ft
-ftp
-fu
-fucked
 fuel
 fuji
 fujitsu
@@ -8018,7 +8007,6 @@ shoot
 shooting
 shop
 shopper
-shoppercom
 shoppers
 shopping
 shoppingcom
