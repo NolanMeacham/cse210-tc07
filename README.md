@@ -40,4 +40,6 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add names and emails here
+*   
+*   
+* Nolan Meacham mea17001@byui.edu  
