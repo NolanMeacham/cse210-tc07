@@ -13,7 +13,7 @@ class Buffer(Actor):
         Class constructor.
 
         """
-        super.__init__()
+        super().__init__()
         self._buffer = []        
         self._text_buffer = '-Buffer:{}'
     
@@ -33,8 +33,8 @@ class Buffer(Actor):
     def get_buffer_display(self):
         pass 
 
-test = Buffer()
+# test = Buffer()
 
-test.init_buffer()
+# test.init_buffer()
 
-print(test.get_buffer())
+# print(test.get_buffer())
