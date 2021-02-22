@@ -4,6 +4,7 @@ from game import constants
 from game.buffer import Buffer
 from game.word import Word
 from game.position import Position
+from game.score import Score
 
 
 
@@ -29,6 +30,7 @@ class Director:
         self.word_choice = ''
         self._current_words = []
         self._inputted_letter = ''
+        self._score = Score()
 
 
         self._keep_playing = True
@@ -45,7 +47,7 @@ class Director:
 
     def _get_random_word(self):
         
-        words = open('speed\game\words.txt').read().splitlines()
+        words = open('game\words.txt').read().splitlines()
 
         return random.choice(words)
 
@@ -73,9 +75,10 @@ class Director:
         """
        
         self._inputted_letter = self._input_service.get_letter()
-        #The only input that happens is within buffer, so do whatever buffer tells you, haha
+
+        self._buffer.set_letter(self._inputted_letter)
+        self._buffer.set_text_buffer()
         
-        pass
     def _do_updates(self):
         """
 
@@ -84,14 +87,8 @@ class Director:
             self._buffer.reset_buffer()
         else:
             
-        self.move_word_list(self._current_words)
-        #TODO
-        #See if the contents of the buffer is in the screen
-            
+            self.move_word_list(self._current_words)
 
-
-        #Update Score
-        pass
 
     def _do_outputs(self):
         """
@@ -103,14 +100,14 @@ class Director:
             
             self._make_words()
 
-
+        self._output_service.draw_actor(self._score)
         self._output_service.draw_actors(self._current_words)
+        self._output_service.draw_actor(self._buffer)
 
         self._output_service.flush_buffer()
-        #TODO
+
         #Display score
 
         #Display words at given position
 
         #Display the buffer text
-        pass

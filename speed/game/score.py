@@ -14,3 +14,5 @@ class Score(Actor):
         """
         super().__init__()
         self._score = 0
+
+        self.set_text(f"Score : {self._score}")
