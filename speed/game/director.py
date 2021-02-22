@@ -3,8 +3,8 @@ from time import sleep
 from game import constants
 from game.buffer import Buffer
 from game.word import Word
-from game.input_service import InputService
-from game.output_service import OutputService
+from game.position import Position
+
 
 
 class Director:
@@ -23,11 +23,12 @@ class Director:
         Args:
             self (Director): an instance of Director.
         """
-        self._input_service = InputService
-        self._output_service = OutputService
+        self._input_service = input_service
+        self._output_service = output_service
         self._buffer = Buffer()
         self.word_choice = ''
         self._current_words = []
+
 
         self._keep_playing = True
 
@@ -50,8 +51,8 @@ class Director:
     def _make_words(self):
 
         for i in range(5):
-            word = Word('WHat?')
-            self.current_words.append(word.get_text())
+            word = Word(self._get_random_word())
+            self._current_words.append(word)
 
     def setup_game(self):
         pass
@@ -61,9 +62,8 @@ class Director:
         """
 
         """
-        self._make_words()
-        self._output_service.draw_actors(self._current_words)
-        #TODO 
+       
+ 
         #The only input that happens is within buffer, so do whatever buffer tells you, haha
         
         pass
@@ -83,6 +83,13 @@ class Director:
         """
         
         """
+        self._output_service.clear_screen()
+        
+        self._make_words()
+
+        self._output_service.draw_actors(self._current_words)
+
+        self._output_service.flush_buffer()
         #TODO
         #Display score
 

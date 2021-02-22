@@ -31,7 +31,7 @@ class Word(Actor):
         self.set_velocity(Position(randint(1,4), 0))
         # TODO: the score for each word should be based on the length of the word and 
         #       its velocity
-        self._points = len(self._word) 
+        self._points = len(word) 
 
     def get_points(self):
         """
