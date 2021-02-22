@@ -71,7 +71,7 @@ class Actor:
         y2 = self._velocity.get_y()
         x = 1 + (x1 + x2 - 1) % (constants.MAX_X - 1)
         y = 1 + (y1 + y2 - 1) % (constants.MAX_Y - 1)
-        position = Point(x, y)
+        position = Position(x, y)
         self._position = position
     
     def set_position(self, position):

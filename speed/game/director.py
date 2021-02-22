@@ -50,9 +50,15 @@ class Director:
 
     def _make_words(self):
 
-        for i in range(5):
+        for i in range(random.randint(1,2)):
             word = Word(self._get_random_word())
             self._current_words.append(word)
+
+    def move_word_list(self, actor_list):
+        """
+        """
+        for actor in actor_list:
+            actor.move_next() 
 
     def setup_game(self):
         pass
@@ -71,10 +77,12 @@ class Director:
         """
 
         """
+        
+        self.move_word_list(self._current_words)
         #TODO
         #See if the contents of the buffer is in the screen
             
-        #Move words 
+
 
         #Update Score
         pass
@@ -85,7 +93,8 @@ class Director:
         """
         self._output_service.clear_screen()
         
-        self._make_words()
+        if len(self._current_words) < 15:
+            self._make_words()
 
         self._output_service.draw_actors(self._current_words)
 
