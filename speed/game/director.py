@@ -44,7 +44,7 @@ class Director:
 
     def _get_random_word(self):
         
-        words = open('game\words.txt').read().splitlines()
+        words = open('speed\game\words.txt').read().splitlines()
 
         return random.choice(words)
 
