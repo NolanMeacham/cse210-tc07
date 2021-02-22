@@ -44,7 +44,7 @@ class Director:
 
     def _get_random_word(self):
         
-        words = open('speed\game\words.txt').read().splitlines()
+        words = open('game\words.txt').read().splitlines()
 
         return random.choice(words)
 
@@ -53,6 +53,8 @@ class Director:
         for i in range(random.randint(1,2)):
             word = Word(self._get_random_word())
             self._current_words.append(word)
+
+        print(len(self._current_words))
 
     def move_word_list(self, actor_list):
         """
@@ -94,7 +96,9 @@ class Director:
         self._output_service.clear_screen()
         
         if len(self._current_words) < 15:
+            
             self._make_words()
+
 
         self._output_service.draw_actors(self._current_words)
 
