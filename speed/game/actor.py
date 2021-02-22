@@ -97,6 +97,6 @@ class Actor:
         
         Args:
             self (Actor): An instance of Actor.
-            position (Point): The given velocity.
+            velocity (Point): The given velocity.
         """
         self._velocity = velocity
