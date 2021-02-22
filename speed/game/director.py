@@ -28,6 +28,7 @@ class Director:
         self._buffer = Buffer()
         self.word_choice = ''
         self._current_words = []
+        self._inputted_letter = ''
 
 
         self._keep_playing = True
@@ -71,7 +72,7 @@ class Director:
 
         """
        
- 
+        self._inputted_letter = self._input_service.get_letter()
         #The only input that happens is within buffer, so do whatever buffer tells you, haha
         
         pass
@@ -79,7 +80,10 @@ class Director:
         """
 
         """
-        
+        if self._inputted_letter == '*':
+            self._buffer.reset_buffer()
+        else:
+            
         self.move_word_list(self._current_words)
         #TODO
         #See if the contents of the buffer is in the screen
