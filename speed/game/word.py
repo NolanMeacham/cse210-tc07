@@ -11,7 +11,8 @@ class Word(Actor):
     position, velocity, and points that the word is worth.
 
     Attributes:
-
+        _points (integer): the points/score that the word is worth. This is 
+                            based on the length of the word and the velocity.
 
     """
 
@@ -29,12 +30,16 @@ class Word(Actor):
         self.set_text(word)
         self.set_position(Position(0, randint(2, constants.MAX_Y-1)))
         self.set_velocity(Position(1, 0))
-        # TODO: the score for each word should be based on the length of the word and 
-        #       its velocity
-        self._points = len(word) 
+        self._points = len(word) + (self.get_velocity().get_x() // 2)
 
     def get_points(self):
         """
+
+        Args:
+            self (Word): An instance of Word class
+
+        Returns:
+            _points (int): the points/score that the individual word is worth.
         """
         return self._points
 
