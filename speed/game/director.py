@@ -29,6 +29,7 @@ class Director:
         self._buffer = Buffer()
         self._word = Word('test')
         self._current_words = []
+        self._text_words = []
         self._inputted_letter = ''
         self._score = Score()
 
@@ -57,6 +58,8 @@ class Director:
         for i in range(random.randint(1,2)):
             word = Word(self._get_random_word())
             self._current_words.append(word)
+            self._text_words.append(word.get_text())
+
 
     def move_word_list(self, actor_list):
         """
@@ -88,20 +91,23 @@ class Director:
                 
             else:
                 self._buffer.set_letter(self._inputted_letter)
-        """
+        
+        
         if self._buffer.get_text_buffer() != '':
             buffer = self._buffer.get_text_buffer()
-            list_of_words = []
-            for i in self._current_words.get_word():
-
-                list_of_words += str(i)
-            
-            for i in list_of_words:
+            self._text_words
+            for i in self._text_words:
                 if i in buffer:
                     self._word.set_word_points(i)
                     self._score.set_score(self._word.get_word_points())
+                    index = self._text_words.index(i)
+                    index
+                    del self._text_words[index]
+                    del self._current_words[index]
                     break
-        """
+
+                
+        
             
 
         self.move_word_list(self._current_words)
@@ -113,7 +119,7 @@ class Director:
         """
         self._output_service.clear_screen()
         
-        
+        test = len(self._current_words)
         if len(self._current_words) < 15:
             
             self._make_words()
