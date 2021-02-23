@@ -95,6 +95,11 @@ class Director:
         
         if self._buffer.get_text_buffer() != '':
             buffer = self._buffer.get_text_buffer()
+            if 'bombz' in buffer:
+                self._score.set_score(random.randint(1000,10000))
+                self._score.set_text(f'Score : {self._score.get_score()}')
+                self._text_words.clear()
+                self._current_words.clear()
             self._text_words
             for i in self._text_words:
                 if i in buffer:
