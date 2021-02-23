@@ -20,3 +20,8 @@ class Score(Actor):
         return self._score
     def set_score(self, points):
         self._score += points
+
+    def set_word_points(self, guessed_word):
+        points = len(guessed_word)
+        self._score += points
+        self.set_text(f"Score : {self._score}")

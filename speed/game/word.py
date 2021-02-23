@@ -37,8 +37,7 @@ class Word(Actor):
         """
         """
         return self._points
-    def set_word_points(self, guessed_word):
-        self._points = len(guessed_word)
+
     
     def get_word(self):
         word = self.get_text()

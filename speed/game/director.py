@@ -98,10 +98,9 @@ class Director:
             self._text_words
             for i in self._text_words:
                 if i in buffer:
-                    self._word.set_word_points(i)
-                    self._score.set_score(self._word.get_word_points())
+                    self._score.set_word_points(i)
+
                     index = self._text_words.index(i)
-                    index
                     del self._text_words[index]
                     del self._current_words[index]
                     break
@@ -129,9 +128,3 @@ class Director:
         self._output_service.draw_actor(self._buffer)
 
         self._output_service.flush_buffer()
-
-        #Display score
-
-        #Display words at given position
-
-        #Display the buffer text
