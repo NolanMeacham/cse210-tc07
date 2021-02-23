@@ -15,7 +15,6 @@ class Director:
     Stereotype:
         Controller
 
-    Attributes:
 
     """
     def __init__(self, input_service, output_service):
@@ -38,7 +37,7 @@ class Director:
 
     def start_game(self):
         """
-
+            Begins the game cycle
         """
         self.setup_game()
         while self._keep_playing:
@@ -48,12 +47,17 @@ class Director:
             sleep(constants.FRAME_LENGTH)
 
     def _get_random_word(self):
-        
+        """
+        This function retrieves a random word from the txt file.
+        """
         words = open('speed\game\words.txt').read().splitlines()
 
         return random.choice(words)
 
     def _make_words(self):
+        """
+        This function makes word actors with random words pulled from the txt file.
+        """
 
         for i in range(random.randint(1,2)):
             word = Word(self._get_random_word())
@@ -63,16 +67,20 @@ class Director:
 
     def move_word_list(self, actor_list):
         """
+        This function takes the list of word actors and moves them all according to their velocity. 
         """
         for actor in actor_list:
             actor.move_next() 
 
     def setup_game(self):
+        """
+        Resets the buffer so that it displays correctly at the beginning
+        """
         self._buffer.reset_buffer()
 
     def _get_inputs(self):
         """
-
+        Gets the keystrokes of the player
         """
        
         self._inputted_letter = self._input_service.get_letter()
@@ -82,7 +90,9 @@ class Director:
         
     def _do_updates(self):
         """
-
+        With the keystrokes, this function writes the letters to the buffer,
+        checks if the keystrokes match the moving word actors, and moves the
+        actors continuely. 
         """
         if self._inputted_letter:
             if self._inputted_letter == '*':
@@ -119,7 +129,9 @@ class Director:
 
     def _do_outputs(self):
         """
-        
+        This function refreshes the asciimatics screen, and adds more words to the screen 
+        if there are less than 15 currently being displayed. It also draws all of the game
+        components to the screen. 
         """
         self._output_service.clear_screen()
         
@@ -128,7 +140,7 @@ class Director:
             
             self._make_words()
         
-        
+
         self._output_service.draw_actor(self._score)
         self._output_service.draw_actors(self._current_words)
         self._output_service.draw_actor(self._buffer)
