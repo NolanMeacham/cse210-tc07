@@ -98,10 +98,10 @@ class Director:
             self._text_words
             for i in self._text_words:
                 if i in buffer:
-                    self._word.set_word_points(i)
-                    self._score.set_score(self._word.get_word_points())
                     index = self._text_words.index(i)
-                    index
+                    self._word.set_word_points(self._text_words[index])
+                    self._score.set_score(self._word.get_word_points())
+                    self._score.set_text(f'Score : {self._score.get_score()}')
                     del self._text_words[index]
                     del self._current_words[index]
                     break
