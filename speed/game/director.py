@@ -101,6 +101,7 @@ class Director:
                     self._score.set_word_points(i)
 
                     index = self._text_words.index(i)
+
                     del self._text_words[index]
                     del self._current_words[index]
                     break
