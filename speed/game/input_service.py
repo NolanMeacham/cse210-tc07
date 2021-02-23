@@ -29,8 +29,10 @@ class InputService:
             string: The letter that was typed.
         """
         result = ""
-        event = self._screen.get_key()
+        event = self._screen.get_event()
+        
         if not event is None:
+            event = event.key_code
             if event == 27:
                 sys.exit()
             elif event == ord('\r'): 

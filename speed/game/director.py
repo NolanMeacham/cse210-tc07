@@ -39,6 +39,7 @@ class Director:
         """
 
         """
+        self.setup_game()
         while self._keep_playing:
             self._get_inputs()
             self._do_updates()
@@ -64,7 +65,7 @@ class Director:
             actor.move_next() 
 
     def setup_game(self):
-        pass
+        self._buffer.reset_buffer()
 
          #TODO intialize everything that needs to happen before main game loop
     def _get_inputs(self):
@@ -73,19 +74,21 @@ class Director:
         """
        
         self._inputted_letter = self._input_service.get_letter()
-
-        self._buffer.set_letter(self._inputted_letter)
-        self._buffer.set_display_buffer()
+        
+        
+        
         
     def _do_updates(self):
         """
 
         """
-        if self._inputted_letter == '*':
-            self._buffer.reset_buffer()
-        else:
-            
-            self.move_word_list(self._current_words)
+        if self._inputted_letter:
+            if self._inputted_letter == '*':
+                self._buffer.reset_buffer()
+                
+            else:
+                self._buffer.set_letter(self._inputted_letter)
+        self.move_word_list(self._current_words)
 
 
     def _do_outputs(self):
@@ -93,6 +96,7 @@ class Director:
         
         """
         self._output_service.clear_screen()
+        
         
         if len(self._current_words) < 15:
             
