@@ -27,7 +27,7 @@ class Director:
         self._input_service = input_service
         self._output_service = output_service
         self._buffer = Buffer()
-        self.word_choice = ''
+        self._word = Word('test')
         self._current_words = []
         self._inputted_letter = ''
         self._score = Score()
@@ -88,6 +88,22 @@ class Director:
                 
             else:
                 self._buffer.set_letter(self._inputted_letter)
+        """
+        if self._buffer.get_text_buffer() != '':
+            buffer = self._buffer.get_text_buffer()
+            list_of_words = []
+            for i in self._current_words.get_word():
+
+                list_of_words += str(i)
+            
+            for i in list_of_words:
+                if i in buffer:
+                    self._word.set_word_points(i)
+                    self._score.set_score(self._word.get_word_points())
+                    break
+        """
+            
+
         self.move_word_list(self._current_words)
 
 
