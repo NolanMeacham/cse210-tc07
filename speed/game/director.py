@@ -70,7 +70,6 @@ class Director:
     def setup_game(self):
         self._buffer.reset_buffer()
 
-         #TODO intialize everything that needs to happen before main game loop
     def _get_inputs(self):
         """
 
@@ -128,7 +127,8 @@ class Director:
         if len(self._current_words) < 15:
             
             self._make_words()
-
+        
+        
         self._output_service.draw_actor(self._score)
         self._output_service.draw_actors(self._current_words)
         self._output_service.draw_actor(self._buffer)

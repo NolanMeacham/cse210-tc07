@@ -27,7 +27,7 @@ class Word(Actor):
         """
         super().__init__()
         self.set_text(word)
-        self.set_position(Position(0, randint(2, constants.MAX_Y-1)))
+        self.set_position(Position(randint(0, constants.MAX_X), randint(2, constants.MAX_Y-1)))
         self.set_velocity(Position(1, 0))
         # TODO: the score for each word should be based on the length of the word and 
         #       its velocity
