@@ -1,5 +1,5 @@
-# from game.buffer import Buffer
+from game.buffer import Buffer
 
 
-# test = Buffer()
-# print(test.)
+test = Buffer()
+print(test._buffer)

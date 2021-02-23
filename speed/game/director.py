@@ -47,7 +47,7 @@ class Director:
 
     def _get_random_word(self):
         
-        words = open('game\words.txt').read().splitlines()
+        words = open('speed\game\words.txt').read().splitlines()
 
         return random.choice(words)
 
@@ -56,8 +56,6 @@ class Director:
         for i in range(random.randint(1,2)):
             word = Word(self._get_random_word())
             self._current_words.append(word)
-
-        print(len(self._current_words))
 
     def move_word_list(self, actor_list):
         """
@@ -77,7 +75,7 @@ class Director:
         self._inputted_letter = self._input_service.get_letter()
 
         self._buffer.set_letter(self._inputted_letter)
-        self._buffer.set_text_buffer()
+        self._buffer.set_display_buffer()
         
     def _do_updates(self):
         """
